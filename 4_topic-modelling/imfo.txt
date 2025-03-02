@@ -1,0 +1,68 @@
+What is Topic Modeling?
+
+Topic modeling is an unsupervised machine learning technique used to uncover hidden thematic structures (topics) in a collection of documents. It automatically groups words into clusters that define the main topics, making it easier to summarize and understand large text datasets.
+
+For example:
+	•	A set of news articles may include topics like politics, sports, technology, and health.
+	•	Each topic is represented by a set of words that frequently co-occur.
+
+Key Concepts in Topic Modeling
+	1.	Corpus:
+	    •	The collection of documents or text data you want to analyze.
+	    •	Example: A dataset of articles, customer reviews, or research papers.
+	2.	Topic:
+	    •	A cluster of words that collectively represent a theme.
+        •  	Example: A topic labeled “sports” might contain words like football, basketball, game, and team.
+	3.	Document-Term Matrix (DTM):
+        •	A matrix where:
+        •	Rows = Documents
+        •	Columns = Words (terms)
+        •	Values = Frequency or weight of a word in a document.
+        •	This is the numerical representation of the text data used by topic modeling algorithms.
+	4.	Number of Topics:
+	    •	A predefined number that specifies how many topics the algorithm should extract from the corpus. (e.g., 5 topics for a small dataset, 20 for a larger one).
+	5.	Topic Distribution:
+	    •	Each document is associated with a probability distribution over topics.
+	    •	Example: A document might be 70% about “sports” and 30% about “health.”
+	6.	Word Distribution:
+	    •	Each topic is represented by a probability distribution over words.
+	    •	Example: The topic “sports” might assign higher probabilities to words like game, score, and team.
+    
+Popular Topic Modeling Techniques
+	1.	Latent Dirichlet Allocation (LDA):
+        •	The most common topic modeling technique.
+        •	It assumes:
+        •	Each document is a mixture of topics.
+        •	Each topic is a mixture of words.
+        •	LDA uses probabilistic methods to assign words to topics.
+	2.	Non-Negative Matrix Factorization (NMF):
+        •	A matrix factorization technique.
+        •	It factorizes the DTM into two matrices:
+        •	One representing documents and topics.
+        •	The other representing topics and words.
+	3.	Latent Semantic Analysis (LSA):
+        •	Uses Singular Value Decomposition (SVD) to reduce the dimensionality of the DTM.
+        •	Captures the latent relationships between words and topics.
+	4.	BERTopic:
+        •	A modern approach that uses transformer embeddings (e.g., BERT) for contextual topic discovery.
+        •	Combines clustering algorithms with pre-trained word embeddings.
+
+Steps in Topic Modeling
+	1.	Text Preprocessing:
+        •	Clean the text data to remove noise and standardize it.
+        •	Common steps:
+        •	Lowercasing
+        •	Removing stopwords (e.g., and, the, is)
+        •	Tokenization (splitting text into words)
+        •	Lemmatization/Stemming (reducing words to their root form)
+	2.	Convert Text to Numerical Data:
+	    •	Create a Document-Term Matrix using techniques like Bag of Words (BoW) or Term Frequency-Inverse Document Frequency (TF-IDF).
+	3.	Apply Topic Modeling Algorithm:
+	    •	Fit the model (e.g., LDA, NMF) to the numerical data.
+	    •	Extract topics and their associated words.
+	4.	Interpret Topics:
+	    •	Review the top words in each topic to label them.
+	    •	Example: A topic with words like game, team, and score could be labeled “sports.”
+	5.	Visualize and Evaluate:
+        •	Use tools like pyLDAvis to visualize topic distributions.
+        •	Evaluate using coherence scores or manual inspection.

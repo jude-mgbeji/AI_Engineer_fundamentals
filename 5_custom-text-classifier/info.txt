@@ -1,0 +1,91 @@
+Text Classification Simplified
+
+Text classification is about teaching a computer to read a piece of text and assign it to a category. For example:
+	•	A review saying, “I love this movie!” would be classified as positive.
+	•	A review saying, “This movie was awful!” would be classified as negative.
+
+We need to go through several steps to make this happen. Let’s break it down with clear explanations.
+
+----------------------------------------------------------------------------------------------
+Step 1: Preprocessing Text
+
+What is Preprocessing?
+
+Preprocessing is cleaning and preparing text so the computer can understand it. Text data is often messy and contains elements like punctuation, stop words (e.g., “the,” “and”), or irrelevant details. Preprocessing transforms text into a format suitable for analysis.
+
+Steps in Preprocessing:
+	1.	Tokenization: Splitting sentences into individual words (tokens).
+	2.	Removing Noise: Removing unnecessary characters like punctuation or numbers.
+	3.	Lowercasing: Converting all words to lowercase for consistency.
+	4.	Vectorization: Turning words into numbers so computers can process them.
+
+Why Do We Need Preprocessing?
+
+Computers work with numbers, not raw text. Preprocessing helps convert text into numerical representations while reducing irrelevant details.
+
+----------------------------------------------------------------------------------------------
+
+Step 2: Splitting Data into Training and Test Sets
+
+Why Split Data?
+
+We want our model to learn from some data (training set) and test it on new data it hasn’t seen before (test set). This ensures the model generalizes well and doesn’t just memorize the training data.
+	•	Training Set: Data used to teach the model.
+	•	Test Set: Data used to evaluate the model’s performance on unseen examples.
+
+Example:
+	•	Training Set: “I love this movie!” → positive.
+	•	Test Set: “This movie is terrible!” → negative.
+
+Why Split Data into X and y?
+
+In machine learning, datasets are typically structured as inputs (features) and outputs (labels or targets):
+	1.	X: Input Data (Features)
+        •	This represents the data the model uses to make predictions.
+        •	For example:
+        •	A movie review: "I love this movie!"
+        •	After vectorization: [1, 1, 1, 1] (representing the words in the text).
+	2.	y: Output Data (Labels/Targets)
+        •	This represents the correct category (or label) for each piece of input data.
+        •	For example:
+        •	Label for the review: "positive"
+
+Splitting the dataset into X (features) and y (labels) separates what the model learns from (X) from what it tries to predict (y).
+
+Analogy: A Teacher and a Quiz
+
+Think of the model training process like a teacher grading a quiz:
+	•	X_train_vec (Input Features): The quiz questions.
+	•	y_train (Labels): The correct answers to the quiz.
+	•	The Model: A student learning by comparing its answers to the correct ones.
+
+If you only gave the teacher the questions (X_train_vec) without the answers (y_train), the student (model) would never know if it was correct or how to improve.
+
+----------------------------------------------------------------------------------------------
+
+Step 3: Vectorization
+
+Why Do We Need Vectorization?
+
+Models cannot understand words directly. We use vectorization to convert words into numbers. There are several vectorization techniques, example is;
+
+Bag of Words (BoW):
+	•	Creates a list of unique words (a vocabulary) in the dataset.
+	•	Represents each text as a count of these words.
+
+----------------------------------------------------------------------------------------------
+
+Step 4: Training Models
+
+How Models Classify Text
+
+Each model uses a different mathematical approach to learn patterns in the training data:
+	1.	Logistic Regression:
+        •	Estimates the probability of a review being positive or negative.
+        •	If the probability is above 0.5, it predicts “positive”; otherwise, “negative.”
+	2.	Naive Bayes:
+        •	Assumes each word contributes independently to the review’s sentiment.
+        •	For example, “love” increases the likelihood of “positive,” while “terrible” increases the likelihood of “negative.”
+	3.	Linear Support Vector Machine (SVM):
+        •	Draws a line (or hyperplane) to separate positive and negative reviews in a high-dimensional space.
+        •	Finds the best line that maximizes the margin between the two classes.

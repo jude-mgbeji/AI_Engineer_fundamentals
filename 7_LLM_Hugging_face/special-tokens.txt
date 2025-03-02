@@ -1,0 +1,130 @@
+Special Tokens in NLP
+
+Special tokens are unique markers used in natural language processing (NLP) tasks to provide context, handle specific scenarios, or encode metadata during model training or inference. These tokens are not regular words but carry special meaning for the model.
+
+Common Types of Special Tokens
+	1.	[CLS] (Classification Token):
+	•	Used in models like BERT for classification tasks.
+	•	Represents the entire input sequence and is often used to aggregate information.
+Example:
+
+Input: [CLS] This is an example sentence [SEP]
+
+
+	2.	[SEP] (Separator Token):
+	•	Indicates the separation between two parts of text (e.g., question and context in a question-answering task).
+	•	Commonly used in tasks with two input sequences.
+Example:
+
+Input: [CLS] Question [SEP] Context [SEP]
+
+
+	3.	[PAD] (Padding Token):
+	•	Used to ensure all input sequences in a batch have the same length.
+	•	Padding tokens are ignored during computations like attention.
+Example:
+
+Input: [CLS] Hello [SEP] [PAD] [PAD]
+
+
+	4.	[MASK] (Mask Token):
+	•	Used in masked language models like BERT during pretraining.
+	•	Replaces words in the input to train the model to predict them.
+Example:
+
+Input: [CLS] The cat [MASK] on the mat [SEP]
+
+
+	5.	 and  (Start and End of Sequence Tokens):
+	•	Used in models like GPT or T5 to mark the start and end of a sequence.
+Example:
+
+Input: <s> This is a sequence </s>
+
+
+	6.	 (Unknown Token):
+	•	Represents words not in the model’s vocabulary.
+	•	Useful for handling out-of-vocabulary (OOV) words.
+Example:
+
+Input: This word <unk> is not known
+
+
+	7.	 (End of Sentence Token):
+	•	Marks the end of a sentence in text generation tasks.
+Example:
+
+Input: The model stops generating at <eos>
+
+
+	8.	 (Beginning of Sentence Token):
+	•	Marks the beginning of a sentence in text generation.
+Example:
+
+Input: <bos> Start generating from here
+
+
+	9.	 (Padding Token in GPT-like Models):
+	•	Used in GPT and other autoregressive models for padding.
+
+Why Are Special Tokens Important?
+	1.	Contextual Information:
+	•	Tokens like [CLS] or <s> provide global context to the model for tasks like classification.
+	2.	Input Segmentation:
+	•	Tokens like [SEP] clearly define boundaries in input text, especially in tasks with multiple segments.
+	3.	Training Efficiency:
+	•	Padding tokens like [PAD] allow batching of inputs with different lengths without introducing noise.
+	4.	Pretraining and Fine-tuning:
+	•	Tokens like [MASK] are critical for pretraining tasks like Masked Language Modeling (MLM).
+	5.	Handling Out-of-Vocabulary Words:
+	•	<unk> ensures the model can process unseen words without failure.
+
+Special Tokens in Hugging Face
+
+When using Hugging Face, special tokens are often defined in the tokenizer.
+
+Example: Checking Special Tokens
+
+from transformers import BertTokenizer
+
+# Load a tokenizer
+tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
+
+# Special tokens
+print(tokenizer.special_tokens_map)
+
+# Output example:
+# {'cls_token': '[CLS]', 'sep_token': '[SEP]', 'pad_token': '[PAD]', 
+#  'unk_token': '[UNK]', 'mask_token': '[MASK]'}
+
+Encoding Text with Special Tokens
+
+text = "This is a test sentence."
+encoded = tokenizer.encode(text, add_special_tokens=True)
+
+print(encoded)
+# Output: [101, 2023, 2003, 1037, 3231, 6251, 102]
+# (101 = [CLS], 102 = [SEP])
+
+Custom Special Tokens
+
+Sometimes, tasks require adding custom tokens. Hugging Face allows this via add_special_tokens.
+
+Example: Adding Custom Tokens
+
+from transformers import BertTokenizer
+
+# Load tokenizer
+tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
+
+# Add custom tokens
+tokenizer.add_special_tokens({"additional_special_tokens": ["<TASK>", "<ENDTASK>"]})
+
+# Tokenize text with custom tokens
+text = "<TASK> This is task-specific text. <ENDTASK>"
+encoded = tokenizer.encode(text)
+print(encoded)
+
+Conclusion
+
+Special tokens play a critical role in modern NLP models, providing structure and enabling the handling of complex tasks. Understanding and using them effectively ensures that your models perform optimally in a variety of applications.
