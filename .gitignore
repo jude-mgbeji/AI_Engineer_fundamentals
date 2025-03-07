@@ -12,7 +12,7 @@ venv/
 
 # Node.js
 node_modules/
-trained_xlnet_trainer/
+trained_xlnet_model/
 xlnet_test_trainer/
 
 # IDEs and Editors
