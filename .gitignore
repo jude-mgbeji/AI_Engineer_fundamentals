@@ -1,0 +1,31 @@
+# Operating system files
+.DS_Store  # macOS
+Thumbs.db  # Windows
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+
+# Node.js
+node_modules/
+trained_xlnet_trainer/
+xlnet_test_trainer/
+
+# IDEs and Editors
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Build directories
+dist/
+build/
+
+# OS-generated files
+*.swp
+*.swo
