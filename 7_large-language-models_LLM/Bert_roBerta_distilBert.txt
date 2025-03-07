@@ -1,0 +1,64 @@
+1. BERT (Bidirectional Encoder Representations from Transformers)
+
+Key Features:
+	•	Developed by Google in 2018.
+	•	Bidirectional: Reads text in both directions (left-to-right and right-to-left), providing context for words from surrounding text.
+	•	Pretrained on two tasks:
+	1.	Masked Language Modeling (MLM): Randomly masks words in a sentence, and the model predicts the masked words.
+	2.	Next Sentence Prediction (NSP): Predicts whether one sentence logically follows another.
+
+Strengths:
+	•	Handles tasks requiring a deep understanding of context.
+	•	Performs well on text classification, question answering, and named entity recognition tasks.
+
+Limitations:
+	•	Large size and slow inference due to bidirectional nature.
+	•	Inefficient training due to the NSP objective, which has been criticized as unnecessary.
+
+
+2. RoBERTa (Robustly Optimized BERT Pretraining Approach)
+
+Key Features:
+	•	Developed by Facebook AI in 2019 as an improvement over BERT.
+	•	Modifications:
+	•	Removed the NSP task, focusing entirely on MLM.
+	•	Trained on larger datasets (e.g., 160GB of text compared to BERT’s 16GB).
+	•	Longer training time with dynamic masking (masking changes between epochs).
+	•	Larger batch sizes and learning rates.
+
+Strengths:
+	•	Outperforms BERT on several benchmarks like GLUE, SQuAD, and RACE.
+	•	Simplifies training by removing NSP while improving performance.
+
+Limitations:
+	•	Even larger than BERT, requiring more computational resources.
+	•	Longer training time due to the dynamic masking and large datasets.
+
+
+3. DistilBERT
+
+Key Features:
+	•	Developed by Hugging Face in 2019.
+	•	A lightweight version of BERT created using a technique called knowledge distillation:
+	•	A smaller student model (DistilBERT) is trained to replicate the behavior of a larger teacher model (BERT).
+	•	Approximately 40% smaller, 60% faster, and retains 97% of BERT’s performance.
+
+Strengths:
+	•	Ideal for environments with limited computational resources (e.g., mobile or edge devices).
+	•	Faster inference compared to BERT and RoBERTa.
+
+Limitations:
+	•	Slightly less accurate than full BERT.
+	•	Limited flexibility for complex, high-resource tasks.
+
+
+When to Use Each Model
+	•	BERT:
+        •	When accuracy is the priority, and computational resources are sufficient.
+        •	Suitable for tasks needing detailed contextual understanding, like question answering.
+	•	RoBERTa:
+        •	For more advanced tasks requiring state-of-the-art performance.
+        •	When larger datasets and resources are available.
+	•	DistilBERT:
+        •	For applications where speed and resource efficiency are critical.
+        •	Suitable for mobile or low-latency environments.

@@ -1,0 +1,72 @@
+1. GPT (Generative Pre-trained Transformer)
+
+Key Features:
+	•	Developed by: OpenAI.
+	•	Primary Objective: Auto-regressive language modeling.
+	•	GPT predicts the next word in a sequence, given the previous words.
+	•	Focuses only on a left-to-right (causal) context.
+
+Training:
+	•	Pretrained using unsupervised learning on massive text corpora.
+	•	Objective: Minimize the difference between predicted and actual next tokens.
+	•	Fine-tuned for downstream tasks (e.g., text generation, summarization).
+
+Strengths:
+	•	Excels at generative tasks like text generation, creative writing, and summarization.
+	•	Simple training objective (predict next word).
+
+Limitations:
+	•	Limited to a unidirectional (left-to-right) context.
+	•	Struggles with tasks that require bidirectional understanding (e.g., sentence classification).
+
+
+2. BERT (Bidirectional Encoder Representations from Transformers)
+
+Key Features:
+	•	Developed by: Google AI.
+	•	Primary Objective: Bidirectional context modeling.
+	•	Unlike GPT, BERT considers both the left and right contexts of words in a sentence simultaneously.
+	•	Pretrained using two tasks:
+	•	Masked Language Modeling (MLM): Randomly masks some words, and the model predicts them.
+	•	Next Sentence Prediction (NSP): Predicts whether one sentence follows another.
+
+Training:
+	•	Pretrained on massive datasets like Wikipedia and BooksCorpus.
+	•	Fine-tuned for downstream tasks like classification, question answering, and entity recognition.
+
+Strengths:
+	•	Bidirectional context enables deeper understanding of text.
+	•	Performs well on comprehension tasks like classification, NER, and question answering.
+
+Limitations:
+	•	Not suited for generative tasks (e.g., text generation).
+	•	Masked word prediction is not directly useful for generating fluent text.
+
+
+3. XLNet
+
+Key Features:
+	•	Developed by: Google Brain and Carnegie Mellon University.
+	•	Primary Objective: Overcome the limitations of BERT and GPT by modeling bidirectional context without masking.
+
+Training:
+	•	Permutated Language Modeling (PLM):
+	•	Unlike BERT, it does not mask tokens but considers all possible word order permutations during training.
+	•	This allows the model to learn bidirectional context without relying on a masking mechanism.
+	•	Auto-regressive and auto-encoding hybrid:
+	•	Combines the strengths of GPT (auto-regressive) and BERT (bidirectional context).
+	•	Handles sequence dependencies better than BERT.
+
+Strengths:
+	•	Avoids the pretrain-finetune discrepancy (BERT learns masked tokens, which doesn’t align with real-world tasks).
+	•	Outperforms BERT on several benchmarks like SQuAD and GLUE.
+
+Limitations:
+	•	Computationally more expensive due to permutations.
+	•	Larger model size and longer training time compared to BERT.
+
+
+When to Use Each Model
+	•	GPT: For creative, generative tasks like text completion, story writing, or summarization.
+	•	BERT: For comprehension and analysis tasks like classification, NER, or question answering.
+	•	XLNet: When performance on complex NLP tasks is critical and computational resources are available.

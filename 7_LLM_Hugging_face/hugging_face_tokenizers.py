@@ -6,7 +6,9 @@ from transformers import AutoTokenizer
 # It also supports decoding token IDs back into human-readable text and converting tokens to token IDs.
 
 print("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Using the BERT model")
-model = "bert-base-uncased"
+# model = "bert-base-uncased"
+model = "distilbert-base-uncased-finetuned-sst-2-english"
+
 tokenizer = AutoTokenizer.from_pretrained(model)
 text = "Hello, world!"
 input_ids = tokenizer(text)
