@@ -1,0 +1,74 @@
+1. Tools
+
+Definition:
+A tool is an external functionality or resource that an AI agent can use to enhance its capabilities. Tools allow agents to interact with the world beyond their internal knowledge, such as querying APIs, searching the web, running code, or fetching data from databases.
+
+Examples of Tools:
+	•	Search Tool: Allows the agent to perform web searches.
+	•	Calculator Tool: Enables mathematical computations.
+	•	File Management Tool: Lets the agent read, write, or manipulate files.
+	•	Database Tool: Queries databases like SQL or NoSQL systems.
+	•	Custom APIs: For example, querying weather information or stock prices.
+
+
+2. Toolkits
+
+Definition:
+A toolkit is a collection or suite of related tools that provide a cohesive set of functionalities. Toolkits are typically designed for specific domains or purposes, making it easier to manage and deploy multiple tools simultaneously.
+
+Examples of Toolkits:
+	•	Code Execution Toolkit: Includes tools for running Python code, evaluating expressions, or debugging scripts.
+	•	Data Retrieval Toolkit: Provides tools for accessing vector databases, retrieving documents, or fetching embeddings.
+	•	SQL Toolkit: Contains tools for querying and manipulating SQL databases.
+	•	API Toolkit: A set of tools for interacting with APIs (e.g., OpenWeather, Twilio).
+
+
+3. Agents
+
+Definition:
+An agent is a dynamic and autonomous system that uses tools or toolkits to solve tasks. Agents can perceive tasks (e.g., natural language queries), decide on a strategy (e.g., reasoning), and execute actions by leveraging tools.
+
+Key Features of Agents:
+	•	Decision-Making: Agents decide when and how to use tools.
+	•	Dynamic Interaction: They can interact with tools multiple times to refine their results.
+	•	Autonomy: Unlike static pipelines, agents make decisions on-the-fly based on their inputs and outputs.
+
+Types of Agents:
+	1.	Tool-Using Agents:
+	•	Execute tasks by using specific tools, such as a calculator or search engine.
+	•	Example: A chatbot that retrieves weather data using a Weather API.
+	2.	Multi-Action Agents:
+	•	Plan multiple steps and use tools iteratively to reach a solution.
+	•	Example: Research assistants performing a literature review using web search.
+	3.	Reasoning Agents:
+	•	Combine logical reasoning and tools to solve complex tasks.
+	•	Example: Agents that perform question-answering over documents using embeddings.
+	4.	Self-Reflection Agents:
+	•	Use outputs and feedback loops to refine their answers or approaches.
+
+
+How They Work Together
+	1.	Tools provide individual functionalities (e.g., a calculator or a database query engine).
+	2.	Toolkits bundle related tools for streamlined use in specific domains.
+	3.	Agents act as the orchestrators, deciding when and how to use tools or toolkits dynamically based on their inputs and reasoning.
+
+
+Key Concepts in Usage
+	1.	Dynamic Tool Usage:
+	•	Agents dynamically decide which tool to use, based on the task at hand.
+	•	Example: A question like “What’s the weather in Paris?” will prompt the agent to use a weather API tool.
+	2.	ReAct Framework:
+	•	Agents use a reasoning framework called ReAct (Reasoning + Acting) to determine the sequence of actions.
+	•	Example: Analyze the problem → Use a tool → Analyze the output → Provide the answer.
+	3.	Memory:
+	•	Memory systems (e.g., ConversationBufferMemory) allow agents to recall past interactions, enhancing continuity and context-awareness.
+	4.	Prompt Engineering:
+	•	The behavior of agents is controlled through well-crafted prompts that define their goals, tool usage rules, and constraints.
+
+
+Summary
+	•	Tools: Individual functionalities like APIs, calculators, or databases.
+	•	Toolkits: Collections of tools organized for specific purposes (e.g., SQL toolkit).
+	•	Agents: Autonomous systems that dynamically decide which tools to use and how to use them to achieve goals.
+
+These three components form the backbone of modern AI systems, enabling them to handle complex, multi-step tasks in real-world applications.
