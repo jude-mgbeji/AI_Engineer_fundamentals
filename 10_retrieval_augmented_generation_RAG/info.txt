@@ -1,0 +1,83 @@
+Retrieval-Augmented Generation (RAG)
+
+Retrieval-Augmented Generation (RAG) is a powerful paradigm in natural language processing (NLP) that combines retrieval-based methods and generative models to enhance the accuracy and relevance of language generation tasks. It addresses the limitation of traditional generative models by incorporating external knowledge from a retrieval system.
+
+In building a RAG application, the system can be splitted into 3 components;
+1. Indexing - This involves preparing the data and storing it in a specialized database
+    emcompasses;
+    * Document loading
+    * Document Splitting
+    * Document embeddings
+    * Document storage
+2. Retrieval - Involves retrirving only the documents most relevant toa user's request
+3. Involves taking the user request with the retrived documents and employing an LLM to produce a context-aware response
+
+
+Key Concepts of RAG
+	1.	Generative Models
+Models like GPT, T5, or BERT-based generators generate text based on input. However, they are limited by the information available in their pretrained weights, which might not include the latest or domain-specific knowledge.
+	2.	Retrieval Mechanism
+RAG integrates a retrieval mechanism that fetches relevant information (e.g., documents, passages) from an external knowledge base, database, or corpus. This ensures the generative model has access to up-to-date and context-specific information.
+	3.	Fusion of Retrieval and Generation
+The retrieved information is combined with the input query and passed to the generative model to produce a more informed response.
+
+Architecture of RAG
+
+A typical RAG architecture consists of the following components:
+	1.	Retriever
+	•	Responsible for fetching relevant documents or passages from an external corpus (e.g., using BM25, dense embeddings, or other retrieval techniques).
+	•	Popular retrievers:
+	•	BM25 (Sparse): Lexical matching-based retriever.
+	•	Dense Retrieval: Embedding-based retriever using models like Sentence-BERT or Dense Passage Retrieval (DPR).
+	2.	Reader (Generator)
+	•	A pretrained language model (e.g., GPT, T5) generates text using the retrieved documents and the input query.
+	3.	Scoring Mechanism
+	•	Combines relevance scores from the retriever and the likelihood of the generative model to determine the best response.
+
+Steps in the RAG Workflow
+	1.	Input Query
+A user query is provided as input (e.g., “What are the benefits of RAG?”).
+	2.	Retrieve Relevant Documents
+The query is passed to the retriever, which fetches top-K relevant documents or passages from an external knowledge base.
+	3.	Augment the Query
+The retrieved documents are concatenated or combined with the original query.
+	4.	Generate a Response
+The augmented input is passed to the generative model, which produces a response based on the query and the retrieved context.
+
+Advantages of RAG
+	1.	Incorporates Up-to-Date Knowledge
+By relying on an external corpus, RAG models can provide answers based on the latest information, unlike traditional generative models with static training data.
+	2.	Improved Contextual Relevance
+Retrieval ensures that the generative model generates more accurate and relevant responses.
+	3.	Efficient Use of Knowledge
+By separating retrieval and generation, RAG can effectively scale across domains by swapping out the knowledge base.
+	4.	Handles Long-Tail Questions
+Retrieval allows the system to answer specific, rare, or domain-specific queries.
+
+Challenges in RAG
+	1.	Retriever Quality
+The quality of the retriever significantly impacts the model’s performance. Poor retrieval can lead to irrelevant or incomplete answers.
+	2.	Inference Latency
+Combining retrieval and generation increases the complexity and time required for inference.
+	3.	Knowledge Base Maintenance
+The external knowledge base must be kept up-to-date and clean.
+	4.	Hallucination
+The generative model may still produce incorrect or fabricated responses if the retrieved documents are noisy.
+
+Applications of RAG
+	1.	Open-Domain Question Answering
+RAG is commonly used for systems like ChatGPT with retrieval plugins, where accurate responses depend on external documents.
+	2.	Customer Support
+By integrating with company FAQs or documentation, RAG-based systems can provide precise responses to customer queries.
+	3.	Medical and Legal Research
+RAG ensures responses are backed by domain-specific and current knowledge.
+	4.	Scientific Exploration
+Researchers can use RAG to explore topics by querying against scientific databases.
+
+Popular Implementations
+	1.	Hugging Face RAG
+Hugging Face provides prebuilt RAG models with integration for retrievers like FAISS and readers like BART.
+	2.	Haystack
+A popular NLP framework for building RAG-based systems.
+	3.	LangChain
+A framework for integrating retrieval-based methods with LLMs to create RAG pipelines.
