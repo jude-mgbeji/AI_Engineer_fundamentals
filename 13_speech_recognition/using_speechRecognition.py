@@ -6,11 +6,6 @@ import soundfile as sf
 import speech_recognition as sr
 from jiwer import cer, wer
 from IPython.display import Audio
-import whisper
-import csv
-import os
-import tempfile
-import wave
 from gtts import gTTS
 
 file_path = r'13_speech_recognition/data/speech_01.wav'
@@ -63,4 +58,7 @@ calculated_wer = wer(ground_truth, transcibed_text_filtered) # Word error rate
 calculated_cer = cer(ground_truth, transcibed_text_filtered) # character error rate
 
 print(f'Word error rate {calculated_wer}') # 32% error 
-print(f'Character error rate {calculated_cer}') # 9%
+print(f'Character error rate {calculated_cer}') # 7%
+
+'''after filtering background noise we notice a slight reduction in the error rate 
+i.e slight improvement in accuracy. Even as such the error rate is still not very accurate'''
