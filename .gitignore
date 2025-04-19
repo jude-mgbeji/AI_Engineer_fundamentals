@@ -10,6 +10,7 @@ __pycache__/
 env/
 venv/
 .env
+*.toml
 
 # Node.js
 node_modules/
@@ -19,6 +20,7 @@ xlnet_test_trainer/
 # IDEs and Editors
 .vscode/
 .idea/
+.streamlit/
 
 # Logs
 *.log
