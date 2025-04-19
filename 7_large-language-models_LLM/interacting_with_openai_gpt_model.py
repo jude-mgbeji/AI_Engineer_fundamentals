@@ -1,7 +1,9 @@
 import openai
-from config import openai_api_key
+from dotenv import load_dotenv
 
-openai.api_key = openai_api_key
+
+# load variables from .env file
+load_dotenv()
 
 def generate_text(prompt):
     response = openai.chat.completions.create(
